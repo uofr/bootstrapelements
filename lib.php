@@ -125,7 +125,7 @@ function bootstrapelements_get_coursemodule_info($coursemodule) {
                 $info->content = bootstrapelements_standard($bootstrapelements->name, $bootstrapelements->title,
                         format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
             break;
-        
+
             case 3:
                 $info->content = bootstrapelements_blockquote($bootstrapelements->name, $bootstrapelements->title,
                         format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
@@ -265,7 +265,7 @@ function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent,
     ));
 
     $output .= '<i class="fa '.$icon.'"></i>';
-    
+
     $output .= $modaltitle;
 
     $output .= html_writer::end_tag('h4');
@@ -324,11 +324,11 @@ function bootstrapelements_modal_button($modalname, $modaltitle, $icon) {
 
 function bootstrapelements_blockquote($name, $title, $content, $icon) {
     $output = html_writer::start_tag('blockquote');
-    
+
     $output .= html_writer::tag('h4', '<i class="fa '.$icon.'"></i>'.$title);
-    
+
     $output .= $content;
-    
+
     $output .= html_writer::end_tag('blockquote');
     return $output;
 }

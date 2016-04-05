@@ -30,7 +30,7 @@ require_once($CFG->dirroot.'/course/moodleform_mod.php');
 
 class mod_bootstrapelements_mod_form extends moodleform_mod {
 
-    function definition() {
+    public function definition() {
         GLOBAL $CFG;
 
         $mform = $this->_form;
@@ -55,7 +55,5 @@ class mod_bootstrapelements_mod_form extends moodleform_mod {
         $mform->addElement('html', $form_html);
         $this->standard_coursemodule_elements();
         $this->add_action_buttons(true, false, null);
-
     }
-
 }
