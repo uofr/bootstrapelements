@@ -54,7 +54,7 @@ class mod_bootstrapelements_mod_form extends moodleform_mod {
         $formhtml = '<link href="'.$CFG->wwwroot.'/mod/bootstrapelements/css/fontawesome-iconpicker.min.css"';
         $formhtml .= ' rel="stylesheet" type="text/css">';
         $formhtml .= '<script type="text/javascript" src="' .
-        $formhtml .= $CFG->wwwroot.'/mod/bootstrapelements/js/fontawesome-iconpicker.min.js"></script>';
+            $CFG->wwwroot.'/mod/bootstrapelements/js/fontawesome-iconpicker.min.js"></script>';
         $formhtml .= '<script type="text/javascript">$(function(){ $("#id_bootstrapicon").';
         $formhtml .= 'iconpicker({placement: "right", selectedCustomClass: "label label-success"}); });</script>';
 
