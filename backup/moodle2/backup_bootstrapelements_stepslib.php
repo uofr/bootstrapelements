@@ -24,6 +24,8 @@
  *
  */
 
+defined('MOODLE_INTERNAL') || die;
+
 /**
  * Define all the backup steps that will be used by the backup_bootstrap_activity_task
  */

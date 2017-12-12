@@ -112,23 +112,28 @@ function bootstrapelements_get_coursemodule_info($coursemodule) {
         switch($bootstrapelements->bootstraptype) {
             case 0:
                 $info->content = bootstrapelements_modal_outline($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon).
-                        bootstrapelements_modal_button($bootstrapelements->name, $bootstrapelements->title, $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon).
+                        bootstrapelements_modal_button($bootstrapelements->name, $bootstrapelements->title,
+                        $bootstrapelements->bootstrapicon);
             break;
 
             case 1:
                 $info->content = bootstrapelements_toggle_outline($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon);
             break;
 
             case 2:
                 $info->content = bootstrapelements_standard($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon);
             break;
 
             case 3:
                 $info->content = bootstrapelements_blockquote($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon);
             break;
         }
 
@@ -172,19 +177,43 @@ function bootstrapelements_get_extra_capabilities() {
  */
 function bootstrapelements_supports($feature) {
     switch($feature) {
-        case FEATURE_IDNUMBER:                return false;
-        case FEATURE_GROUPS:                  return false;
-        case FEATURE_GROUPINGS:               return false;
-        case FEATURE_GROUPMEMBERSONLY:        return true;
-        case FEATURE_MOD_INTRO:               return true;
-        case FEATURE_COMPLETION_TRACKS_VIEWS: return false;
-        case FEATURE_GRADE_HAS_GRADE:         return false;
-        case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_MOD_ARCHETYPE:           return MOD_ARCHETYPE_RESOURCE;
-        case FEATURE_BACKUP_MOODLE2:          return true;
-        case FEATURE_NO_VIEW_LINK:            return true;
+        case FEATURE_IDNUMBER: {
+            return false;
+        }
+        case FEATURE_GROUPS: {
+            return false;
+        }
+        case FEATURE_GROUPINGS: {
+            return false;
+        }
+        case FEATURE_GROUPMEMBERSONLY: {
+            return true;
+        }
+        case FEATURE_MOD_INTRO: {
+            return true;
+        }
+        case FEATURE_COMPLETION_TRACKS_VIEWS: {
+            return false;
+        }
+        case FEATURE_GRADE_HAS_GRADE: {
+            return false;
+        }
+        case FEATURE_GRADE_OUTCOMES: {
+            return false;
+        }
+        case FEATURE_MOD_ARCHETYPE: {
+            return MOD_ARCHETYPE_RESOURCE;
+        }
+        case FEATURE_BACKUP_MOODLE2: {
+            return true;
+        }
+        case FEATURE_NO_VIEW_LINK: {
+            return true;
+        }
 
-        default: return null;
+        default: {
+            return null;
+        }
     }
 }
 

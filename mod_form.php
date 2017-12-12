@@ -43,16 +43,22 @@ class mod_bootstrapelements_mod_form extends moodleform_mod {
 
         $this->standard_intro_elements(get_string('formcontent', 'mod_bootstrapelements'));
 
-        $mform->addElement('select', 'bootstraptype', get_string('bootstraptype', 'mod_bootstrapelements'), array(0 => get_string('modal', 'mod_bootstrapelements'), 1 => get_string('toggle', 'mod_bootstrapelements'), 2 => get_string('enhancedlabel', 'mod_bootstrapelements'), 3 => get_string('blockquote', 'mod_bootstrapelements')));
+        $mform->addElement('select', 'bootstraptype', get_string('bootstraptype', 'mod_bootstrapelements'),
+                array(0 => get_string('modal', 'mod_bootstrapelements'), 1 => get_string('toggle', 'mod_bootstrapelements'),
+                        2 => get_string('enhancedlabel', 'mod_bootstrapelements'),
+                        3 => get_string('blockquote', 'mod_bootstrapelements')));
 
         $mform->addElement('text', 'bootstrapicon', get_string('bootstrapicon', 'mod_bootstrapelements'));
         $mform->setType('bootstrapicon', PARAM_TEXT);
 
-        $form_html = '<link href="'.$CFG->wwwroot.'/mod/bootstrapelements/css/fontawesome-iconpicker.min.css" rel="stylesheet" type="text/css">';
-        $form_html .= '<script type="text/javascript" src="'.$CFG->wwwroot.'/mod/bootstrapelements/js/fontawesome-iconpicker.min.js"></script>';
-        $form_html .= '<script type="text/javascript">$(function(){ $("#id_bootstrapicon").iconpicker({placement: "right", selectedCustomClass: "label label-success"}); });</script>';
+        $formhtml = '<link href="'.$CFG->wwwroot.'/mod/bootstrapelements/css/fontawesome-iconpicker.min.css"';
+        $formhtml .= ' rel="stylesheet" type="text/css">';
+        $formhtml .= '<script type="text/javascript" src="' .
+        $formhtml .= $CFG->wwwroot.'/mod/bootstrapelements/js/fontawesome-iconpicker.min.js"></script>';
+        $formhtml .= '<script type="text/javascript">$(function(){ $("#id_bootstrapicon").';
+        $formhtml .= 'iconpicker({placement: "right", selectedCustomClass: "label label-success"}); });</script>';
 
-        $mform->addElement('html', $form_html);
+        $mform->addElement('html', $formhtml);
         $this->standard_coursemodule_elements();
         $this->add_action_buttons(true, false, null);
     }
