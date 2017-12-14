@@ -271,7 +271,7 @@ function bootstrapelements_toggle_outline($togglename, $toggletitle, $togglecont
 function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent, $icon) {
     $output = html_writer::start_tag('div', array(
         'id' => $modalname,
-        'class' => 'modal fade',
+        'class' => 'modal hide fade',
         'role' => 'dialog',
         'aria-labelledby' => 'myModalLabel',
         'aria-hidden' => 'true'
