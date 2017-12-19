@@ -332,7 +332,7 @@ function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent,
     $output .= html_writer::end_tag('div');
 
     $output .= html_writer::start_tag('div', array(
-        'class' => 'text-center'
+        'class' => 'text-left'
     ));
 
     return $output;
