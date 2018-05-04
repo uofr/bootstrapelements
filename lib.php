@@ -112,23 +112,28 @@ function bootstrapelements_get_coursemodule_info($coursemodule) {
         switch($bootstrapelements->bootstraptype) {
             case 0:
                 $info->content = bootstrapelements_modal_outline($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon).
-                        bootstrapelements_modal_button($bootstrapelements->name, $bootstrapelements->title, $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon).
+                        bootstrapelements_modal_button($bootstrapelements->name, $bootstrapelements->title,
+                        $bootstrapelements->bootstrapicon);
             break;
 
             case 1:
                 $info->content = bootstrapelements_toggle_outline($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon);
             break;
 
             case 2:
                 $info->content = bootstrapelements_standard($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon);
             break;
-        
+
             case 3:
                 $info->content = bootstrapelements_blockquote($bootstrapelements->name, $bootstrapelements->title,
-                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false), $bootstrapelements->bootstrapicon);
+                        format_module_intro('bootstrapelements', $bootstrapelements, $coursemodule->id, false),
+                        $bootstrapelements->bootstrapicon);
             break;
         }
 
@@ -172,19 +177,43 @@ function bootstrapelements_get_extra_capabilities() {
  */
 function bootstrapelements_supports($feature) {
     switch($feature) {
-        case FEATURE_IDNUMBER:                return false;
-        case FEATURE_GROUPS:                  return false;
-        case FEATURE_GROUPINGS:               return false;
-        case FEATURE_GROUPMEMBERSONLY:        return true;
-        case FEATURE_MOD_INTRO:               return true;
-        case FEATURE_COMPLETION_TRACKS_VIEWS: return false;
-        case FEATURE_GRADE_HAS_GRADE:         return false;
-        case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_MOD_ARCHETYPE:           return MOD_ARCHETYPE_RESOURCE;
-        case FEATURE_BACKUP_MOODLE2:          return true;
-        case FEATURE_NO_VIEW_LINK:            return true;
+        case FEATURE_IDNUMBER: {
+            return false;
+        }
+        case FEATURE_GROUPS: {
+            return false;
+        }
+        case FEATURE_GROUPINGS: {
+            return false;
+        }
+        case FEATURE_GROUPMEMBERSONLY: {
+            return true;
+        }
+        case FEATURE_MOD_INTRO: {
+            return true;
+        }
+        case FEATURE_COMPLETION_TRACKS_VIEWS: {
+            return false;
+        }
+        case FEATURE_GRADE_HAS_GRADE: {
+            return false;
+        }
+        case FEATURE_GRADE_OUTCOMES: {
+            return false;
+        }
+        case FEATURE_MOD_ARCHETYPE: {
+            return MOD_ARCHETYPE_RESOURCE;
+        }
+        case FEATURE_BACKUP_MOODLE2: {
+            return true;
+        }
+        case FEATURE_NO_VIEW_LINK: {
+            return true;
+        }
 
-        default: return null;
+        default: {
+            return null;
+        }
     }
 }
 
@@ -242,7 +271,7 @@ function bootstrapelements_toggle_outline($togglename, $toggletitle, $togglecont
 function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent, $icon) {
     $output = html_writer::start_tag('div', array(
         'id' => $modalname,
-        'class' => 'modal fade',
+        'class' => 'modal hide fade',
         'role' => 'dialog',
         'aria-labelledby' => 'myModalLabel',
         'aria-hidden' => 'true'
@@ -265,7 +294,7 @@ function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent,
     ));
 
     $output .= '<i class="fa '.$icon.'"></i>';
-    
+
     $output .= $modaltitle;
 
     $output .= html_writer::end_tag('h4');
@@ -303,7 +332,7 @@ function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent,
     $output .= html_writer::end_tag('div');
 
     $output .= html_writer::start_tag('div', array(
-        'class' => 'text-center'
+        'class' => 'text-left'
     ));
 
     return $output;
@@ -324,11 +353,11 @@ function bootstrapelements_modal_button($modalname, $modaltitle, $icon) {
 
 function bootstrapelements_blockquote($name, $title, $content, $icon) {
     $output = html_writer::start_tag('blockquote');
-    
+
     $output .= html_writer::tag('h4', '<i class="fa '.$icon.'"></i>'.$title);
-    
+
     $output .= $content;
-    
+
     $output .= html_writer::end_tag('blockquote');
     return $output;
 }

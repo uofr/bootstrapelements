@@ -30,7 +30,7 @@ function xmldb_bootstrapelements_upgrade($oldversion) {
     global $CFG, $DB;
 
     $dbman = $DB->get_manager();
-    
+
     if ($oldversion < 2015010600) {
 
         // Define field bootstrapstyle to be added to bootstrapelements.

@@ -24,6 +24,8 @@
  *
  */
 
+defined('MOODLE_INTERNAL') || die;
+
 /**
  * Structure step to restore one bootstrap activity
  */
