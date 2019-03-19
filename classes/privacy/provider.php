@@ -15,20 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Privacy Subsystem implementation for mod_bootstrapelements.
  *
- * @package    mod
- * @subpackage bootstrapelements
- * @copyright  2014 Birmingham City University <michael.grant@bcu.ac.uk>
+ * @package    mod_bootstrapelements
+ * @copyright  2019 Manoj Solanki (Coventry University)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
  */
+
+namespace mod_bootstrapelements\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019021200;
-$plugin->requires  = 2014050800;
-$plugin->component = 'mod_bootstrapelements';
-$plugin->cron      = 0;
-$plugin->release   = '1.3';
-$plugin->maturity  = MATURITY_STABLE;
+/**
+ * The mod_bootstrapelements module does not store any personal data.
+ *
+ * @package    mod_bootstrapelements
+ * @copyright  2019 Manoj Solanki (Coventry University)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

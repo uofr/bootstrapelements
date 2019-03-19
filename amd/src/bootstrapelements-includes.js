@@ -1,4 +1,3 @@
-<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,20 +14,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
  *
- * @package    mod
- * @subpackage bootstrapelements
- * @copyright  2014 Birmingham City University <michael.grant@bcu.ac.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
+ * @module      mod_bootstrapelements/bootstrapelements-includes
+ * @copyright   2019 Manoj Solanki (Coventry University)
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+define(['jquery', 'popover'], function($) {
+    return {
+        init: function () {
+            require(['mod_bootstrapelements/fontawesome-iconpicker'], function() {
 
-$plugin->version   = 2019021200;
-$plugin->requires  = 2014050800;
-$plugin->component = 'mod_bootstrapelements';
-$plugin->cron      = 0;
-$plugin->release   = '1.3';
-$plugin->maturity  = MATURITY_STABLE;
+                $(function() {
+                    $("#id_bootstrapicon").iconpicker({placement: "right", selectedCustomClass: "label label-success"});
+                });
+            });
+        }
+
+    };
+});
