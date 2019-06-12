@@ -352,15 +352,7 @@
     var c = a.ui.position;
 });
 
-(function(a) {
-    "use strict";
-    if (typeof define === "function" && define.amd) {
-        define([ "jquery" ], a);
-    } else if (window.jQuery && !window.jQuery.fn.iconpicker) {
-        a(window.jQuery);
-    }
-})(function(a) {
-    "use strict";
+define(['jquery','popover'], function(a) {
     var b = {
         isEmpty: function(a) {
             return a === false || a === "" || a === null || a === undefined;
