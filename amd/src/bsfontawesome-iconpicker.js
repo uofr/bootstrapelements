@@ -1,12 +1,7 @@
 (function(a) {
-    if (typeof define === "function" && define.amd) {
         define([ "jquery" ], a);
-    } else {
-        a(jQuery);
-    }
 })(function(a) {
     a.ui = a.ui || {};
-    var b = a.ui.version = "1.12.1";
     (function() {
         var b, c = Math.max, d = Math.abs, e = /left|center|right/, f = /top|center|bottom/, g = /[\+\-]\d+(\.[\d]+)?%?/, h = /^\w+/, i = /%$/, j = a.fn.pos;
         function k(a, b, c) {
@@ -58,7 +53,8 @@
                 if (b !== undefined) {
                     return b;
                 }
-                var c, d, e = a("<div " + "style='display:block;position:absolute;width:50px;height:50px;overflow:hidden;'>" + "<div style='height:100px;width:auto;'></div></div>"), f = e.children()[0];
+                var c, d, e = a("<div " + "style='display:block;position:absolute;width:50px;height:50px;overflow:hidden;'>" + "<div style='height:100px;width:auto;'></div></div>");
+                var f = e.children()[0];
                 a("body").append(e);
                 c = f.offsetWidth;
                 e.css("overflow", "scroll");
@@ -67,10 +63,12 @@
                     d = e[0].clientWidth;
                 }
                 e.remove();
-                return b = c - d;
+                b = c - d
+                return b;
             },
             getScrollInfo: function(b) {
-                var c = b.isWindow || b.isDocument ? "" : b.element.css("overflow-x"), d = b.isWindow || b.isDocument ? "" : b.element.css("overflow-y"), e = c === "scroll" || c === "auto" && b.width < b.element[0].scrollWidth, f = d === "scroll" || d === "auto" && b.height < b.element[0].scrollHeight;
+                var c = b.isWindow || b.isDocument ? "" : b.element.css("overflow-x"), d = b.isWindow || b.isDocument ? "" : b.element.css("overflow-y"),
+                e = c === "scroll" || c === "auto" && b.width < b.element[0].scrollWidth, f = d === "scroll" || d === "auto" && b.height < b.element[0].scrollHeight;
                 return {
                     width: f ? a.pos.scrollbarWidth() : 0,
                     height: e ? a.pos.scrollbarWidth() : 0
@@ -349,10 +347,10 @@
             c.removeChild(b);
         })();
     })();
-    var c = a.ui.position;
 });
 
-define(['jquery','popover'], function(a) {
+define(['jquery'], function(a) {
+    console.log("function a bottom");
     var b = {
         isEmpty: function(a) {
             return a === false || a === "" || a === null || a === undefined;
@@ -462,7 +460,7 @@ define(['jquery','popover'], function(a) {
         var d = Array.prototype.slice.call(arguments, 2);
         return a(b).each(function() {
             var b = a(this).data("iconpicker");
-            if (!!b) {
+            if (b) {
                 b[c].apply(b, d);
             }
         });
@@ -481,7 +479,7 @@ define(['jquery','popover'], function(a) {
         _createPopover: function() {
             this.popover = a(this.options.templates.popover);
             var c = this.popover.find(".popover-title");
-            if (!!this.options.title) {
+            if (this.options.title) {
                 c.append(a('<div class="popover-title-text">' + this.options.title + "</div>"));
             }
             if (this.hasSeparatedSearchInput() && !this.options.searchInFooter) {
@@ -769,7 +767,6 @@ define(['jquery','popover'], function(a) {
                     {
                         return false;
                 }
-                break;
             }
             this.popover.css({
                 display: this.options.placement === "inline" ? "" : "block"
