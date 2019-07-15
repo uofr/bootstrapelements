@@ -20,10 +20,10 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define(['jquery', 'popover'], function($) {
+define(['jquery', 'theme_boost/popover','mod_bootstrapelements/iconpicker'], function($,unused,iconpicker) {
     return {
         init: function () {
-            require(['mod_bootstrapelements/fontawesome-iconpicker'], function() {
+            require(['mod_bootstrapelements/iconpicker','theme_boost/popover'], function() {
 
                 $(function() {
                     $("#id_bootstrapicon").iconpicker({placement: "right", selectedCustomClass: "label label-success"});
