@@ -1,6 +1,40 @@
-(function(a) {
-        define([ "jquery" ], a);
-})(function(a) {
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ *
+ * @module      mod_bootstrapelements/bootstrapelements-includes
+ * @copyright   2019 Manoj Solanki (Coventry University)
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+define(['jquery'], function($) {
+    return {
+        init: function () {
+            console.log("bootstrapelements-includes.js");
+            setTimeout(function(){
+                $("#id_bootstrapicon").iconpicker({placement: "right", selectedCustomClass: "label label-success"});
+            }, 1000)
+            
+        }
+    };
+    
+});
+
+require(['jquery'],function(a) {
+    console.log("function a top includes")
     a.ui = a.ui || {};
     (function() {
         var b, c = Math.max, d = Math.abs, e = /left|center|right/, f = /top|center|bottom/, g = /[\+\-]\d+(\.[\d]+)?%?/, h = /^\w+/, i = /%$/, j = a.fn.pos;
@@ -349,8 +383,8 @@
     })();
 });
 
-define(['jquery'], function(a) {
-    console.log("function a bottom");
+require(['jquery'], function(a) {
+    console.log("function a bottom includes");
     var b = {
         isEmpty: function(a) {
             return a === false || a === "" || a === null || a === undefined;
