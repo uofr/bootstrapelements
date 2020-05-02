@@ -700,7 +700,7 @@ require(['jquery'], function(a) {
                 within: window
             };
             var removeclassstr = "inline topLeftCorner topLeft top topRight topRightCorner ";
-            removeclassstr += "inline topLeftCorner topLeft top topRight topRightCorner ";
+            removeclassstr += "rightTop right rightBottom bottomRight bottomRightCorner ";
             removeclassstr += "bottom bottomLeft bottomLeftCorner leftBottom left leftTop";
             this.popover.removeClass(removeclassstr);
             if (typeof b === "object") {
